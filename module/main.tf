@@ -18,7 +18,7 @@ resource "null_resource" "provisioner" {
     }
     inline = [
       "rm -rf roboshop-shell",
-      "git clone https://github.com/Arafique458/roboshop-shell.git",
+      "git clone https://github.com/AsadR91/Shell-Application.git",
       "cd roboshop-shell",
       "sudo bash ${var.components_name}.sh ${var.password}"
     ]
@@ -26,8 +26,8 @@ resource "null_resource" "provisioner" {
 }
 # Aws route53 zone created
 resource "aws_route53_record" "records" {
-  zone_id = "Z00656475HL25WDFMPZ4"
-  name    = "${var.components_name}-dev.devopsdude.cloud"
+  zone_id = "Z06713231KES4IR98A94G"
+  name    = "${var.components_name}-dev.automation-dev.us"
   type    = "A"
   ttl     = 30
   records = [aws_instance.instance.private_ip]
