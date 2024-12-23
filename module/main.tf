@@ -17,9 +17,9 @@ resource "null_resource" "provisioner" {
       host     = aws_instance.instance.private_ip
     }
     inline = [
-      "rm -rf roboshop-shell",
+      "rm -rf Shell-Application",
       "git clone https://github.com/AsadR91/Shell-Application.git",
-      "cd roboshop-shell",
+      "cd Shell-Application",
       "sudo bash ${var.components_name}.sh ${var.password}"
     ]
   }
