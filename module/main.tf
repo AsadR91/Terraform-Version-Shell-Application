@@ -26,8 +26,8 @@ resource "null_resource" "provisioner" {
 }
 # Aws route53 zone created
 resource "aws_route53_record" "records" {
-  zone_id = "Z06713231KES4IR98A94G"
-  name    = "${var.components_name}-dev.automation-dev.us"
+  zone_id = "Z08420341KHXVTEAFBRM0"
+  name    = "${var.components_name}-dev.devopsdude.cloud"
   type    = "A"
   ttl     = 30
   records = [aws_instance.instance.private_ip]
