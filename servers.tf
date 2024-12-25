@@ -30,8 +30,8 @@ module "app-servers" {
 # }
 # # Aws route53 zone created
 # resource "aws_route53_record" "catalogue" {
-#  zone_id = "Z08420341KHXVTEAFBRM0"
-#  name    = "catalogue-dev.devopsdude.cloud"
+#  zone_id = "Z0994848US8809DHWYNJ"
+#  name    = "catalogue-dev.automationbox.click"
 #  type    = "A"
 #  ttl     = 300
 #  records = [aws_instance.catalogue.private_ip]
@@ -48,8 +48,8 @@ module "app-servers" {
 # }
 # # Aws route53 zone created
 # resource "aws_route53_record" "mongodb" {
-#  zone_id = "Z08420341KHXVTEAFBRM0"
-#  name    = "mongodb-dev.devopsdude.cloud"
+#  zone_id = "Z0994848US8809DHWYNJ"
+#  name    = "mongodb-dev.automationbox.click"
 #  type    = "A"
 #  ttl     = 300
 #  records = [aws_instance.mongodb.private_ip]
@@ -66,8 +66,8 @@ module "app-servers" {
 # }
 # # Aws route53 zone created
 # resource "aws_route53_record" "redis" {
-#  zone_id = "Z08420341KHXVTEAFBRM0"
-#  name    = "redis-dev.devopsdude.cloud"
+#  zone_id = "Z0994848US8809DHWYNJ"
+#  name    = "redis-dev.automationbox.click"
 #  type    = "A"
 #  ttl     = 300
 #  records = [aws_instance.redis.private_ip]
@@ -84,8 +84,8 @@ module "app-servers" {
 # }
 # # Aws route53 zone created
 # resource "aws_route53_record" "user" {
-#  zone_id = "Z08420341KHXVTEAFBRM0"
-#  name    = "user-dev.devopsdude.cloud"
+#  zone_id = "Z0994848US8809DHWYNJ"
+#  name    = "user-dev.automationbox.click"
 #  type    = "A"
 #  ttl     = 300
 #  records = [aws_instance.user.private_ip]
@@ -102,8 +102,8 @@ module "app-servers" {
 # }
 # # Aws route53 zone created
 # resource "aws_route53_record" "cart" {
-#  zone_id = "Z08420341KHXVTEAFBRM0"
-#  name    = "cart-dev.devopsdude.cloud"
+#  zone_id = "Z0994848US8809DHWYNJ"
+#  name    = "cart-dev.automationbox.click"
 #  type    = "A"
 #  ttl     = 300
 #  records = [aws_instance.cart.private_ip]
@@ -120,8 +120,8 @@ module "app-servers" {
 # }
 # # Aws route53 zone created
 # resource "aws_route53_record" "mysql" {
-#  zone_id = "Z08420341KHXVTEAFBRM0"
-#  name    = "mysql-dev.devopsdude.cloud"
+#  zone_id = "Z0994848US8809DHWYNJ"
+#  name    = "mysql-dev.automationbox.click"
 #  type    = "A"
 #  ttl     = 300
 #  records = [aws_instance.mysql.private_ip]
@@ -138,8 +138,8 @@ module "app-servers" {
 # }
 # # Aws route53 zone created
 # resource "aws_route53_record" "shipping" {
-#  zone_id = "Z08420341KHXVTEAFBRM0"
-#  name    = "shipping-dev.devopsdude.cloud"
+#  zone_id = "Z0994848US8809DHWYNJ"
+#  name    = "shipping-dev.automationbox.click"
 #  type    = "A"
 #  ttl     = 300
 #  records = [aws_instance.shipping.private_ip]
@@ -156,8 +156,8 @@ module "app-servers" {
 # }
 # # Aws route53 zone created
 # resource "aws_route53_record" "rabbitmq" {
-#  zone_id = "Z08420341KHXVTEAFBRM0"
-#  name    = "rabbitmq-dev.devopsdude.cloud"
+#  zone_id = "Z0994848US8809DHWYNJ"
+#  name    = "rabbitmq-dev.automationbox.click"
 #  type    = "A"
 #  ttl     = 300
 #  records = [aws_instance.rabbitmq.private_ip]
@@ -174,8 +174,8 @@ module "app-servers" {
 # }
 # # Aws route53 zone created
 # resource "aws_route53_record" "payment" {
-#  zone_id = "Z08420341KHXVTEAFBRM0"
-#  name    = "payment-dev.devopsdude.cloud"
+#  zone_id = "Z0994848US8809DHWYNJ"
+#  name    = "payment-dev.automationbox.click"
 #  type    = "A"
 #  ttl     = 300
 #  records = [aws_instance.payment.private_ip]
