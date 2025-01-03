@@ -9,7 +9,7 @@ app_servers = {
   }
   cart = {
     name          = "cart"
-    instance_type = "t3.micro"
+    instance_type = "t3.small"
   }
   user = {
     name          = "user"
