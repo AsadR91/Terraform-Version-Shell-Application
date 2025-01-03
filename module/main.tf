@@ -33,6 +33,8 @@ resource "aws_route53_record" "records" {
   records = [aws_instance.instance.private_ip]
 }
 
+# reference Video 34 and 35
+
 resource "aws_iam_role" "role" {
   name = "${var.component_name}-${var.env}-role"
 
