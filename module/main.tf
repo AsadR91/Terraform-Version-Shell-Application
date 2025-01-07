@@ -62,29 +62,61 @@ resource "aws_iam_instance_profile" "instance_profile" {
   role = aws_iam_role.role.name
 }
 
-resource "aws_iam_role_policy" "ssm-ps-policy" {
+resource "aws_iam_role_policy" "ssm_ps_policy" {
   name = "${var.component_name}-${var.env}-ssm-ps-policy"
   role = aws_iam_role.role.id
 
-
   policy = jsonencode({
-    "Version" : "2012-10-17",
-    "Statement" : [
+    "Version": "2012-10-17",
+    "Statement": [
       {
-        "Sid" : "VisualEditor0",
-        "Effect" : "Allow",
-        "Action" : [
-          "kms:Decrypt",
-          "ssm:GetParameterHistory",
-          "ssm:GetParametersByPath",
+        "Sid": "AllowSSMParameterAccess",
+        "Effect": "Allow",
+        "Action": [
+          "ssm:GetParameter",
           "ssm:GetParameters",
-          "ssm:GetParameter"
+          "ssm:GetParameterHistory",
+          "ssm:GetParametersByPath"
         ],
-        "Resource" : [
-          "arn:aws:kms:us-east-1:842676003559:key/4f4d4c1d-a16f-4407-850d-c4584a6e25227",
-          "arn:aws:kms:us-east-1:842676003559:parameter/${var.env}.${var.component_name}.*"
-        ]
+        "Resource": "arn:aws:ssm:us-east-1:842676003559:parameter/${var.env}.${var.component_name}.*"
+      },
+      {
+        "Sid": "AllowKMSDecryptAccess",
+        "Effect": "Allow",
+        "Action": "kms:Decrypt",
+        "Resource": "arn:aws:kms:us-east-1:842676003559:key/4f4d4c1d-a16f-4407-850d-c4584a6e25227"
       }
     ]
   })
 }
+
+
+
+
+
+# resource "aws_iam_role_policy" "ssm-ps-policy" {
+#   name = "${var.component_name}-${var.env}-ssm-ps-policy"
+#   role = aws_iam_role.role.id
+#
+#
+#   policy = jsonencode({
+#     "Version" : "2012-10-17",
+#     "Statement" : [
+#       {
+#         "Sid" : "VisualEditor0",
+#         "Effect" : "Allow",
+#         "Action" : [
+#           "kms:Decrypt",
+#           "ssm:GetParameterHistory",
+#           "ssm:GetParametersByPath",
+#           "ssm:GetParameters",
+#           "ssm:GetParameter"
+#         ],
+#         "Resource" : [
+#           "arn:aws:kms:us-east-1:842676003559:key/4f4d4c1d-a16f-4407-850d-c4584a6e25227",
+#           "arn:aws:kms:us-east-1:842676003559:parameter/${var.env}.${var.component_name}.*"
+#         ]
+#       }
+#     ]
+#   })
+# }
