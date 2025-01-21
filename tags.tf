@@ -1,9 +1,9 @@
 locals {
   tags = {
-    business_unit = "eCommerce"
+    business_unit = "ecommerce"
     business_type = "retail"
     project       = "roboshop"
-    cost_center   = "100"
+    cost_center   = 100
     env           = var.env
   }
 }
