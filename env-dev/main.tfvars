@@ -26,3 +26,36 @@ vpc = {
     }
   }
 }
+
+app = {
+  frontend ={
+    name = "frontend"
+    instant_type = "t3.small"
+    subnet_name = "web"
+  }
+  catalogue ={
+    name = "catalogue"
+    instant_type = "t3.small"
+    subnet_name = "web"
+  }
+  cart ={
+    name = "cart"
+    instant_type = "t3.small"
+    subnet_name = "web"
+  }
+  user ={
+    name = "user"
+    instant_type = "t3.small"
+    subnet_name = "web"
+  }
+  shipping ={
+    name = "shipping"
+    instant_type = "t3.small"
+    subnet_name = "web"
+  }
+  payment ={
+    name = "payment"
+    instant_type = "t3.small"
+    subnet_name = "web"
+  }
+}

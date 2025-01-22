@@ -7,3 +7,11 @@ module "vpc" {
   tags       = local.tags
   env        = var.env
 }
+
+module "apps" {
+  source = "git@github.com:AsadR91/TF-Module-app.git"
+
+  for_each = var.app
+  instance_type = each.value["instance_type"]
+  subnet_ids = element(lookup(lookup(lookup(module,vpc, "main", null), "subnets", null), each.value["subnet_name"], null), "subnet_ids", null), 0)
+}
