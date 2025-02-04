@@ -104,3 +104,39 @@ module "rabbitmq" {
   kms_arn      = var.kms_arn
   bastion_cidr = var.bastion_cidr
 }
+
+module "alb" {
+  source = "git::https://github.com/AsadR91/tf-module-alb.git"
+
+  for_each       = var.alb
+  subnets        = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnets", null), each.value["subnet_name"], null), "subnet_ids", null)
+  allow_alb_cidr = each.value["name"] == "public" ? ["0.0.0.0/0"] : lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnets", null), each.value["allow_alb_cidr"], null), "subnet_cidrs", null)
+  name           = each.value["name"]
+  internal       = each.value["internal"]
+
+
+  tags   = local.tags
+  env    = var.env
+  vpc_id = local.vpc_id
+}
+
+module "app" {
+  depends_on = [module.vpc, module.docdb, module.rds, module.elasticache, module.rabbitmq, module.alb]
+  source     = "git::https://github.com/AsadR91/TF-Module-app.git"
+
+  for_each         = var.app
+  instance_type    = each.value["instance_type"]
+  name             = each.value["name"]
+  desired_capacity = each.value["desired_capacity"]
+  max_size         = each.value["max_size"]
+  min_size         = each.value["min_size"]
+  app_port         = each.value["app_port"]
+
+  subnet_ids     = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnets", null), each.value["subnet_name"], null), "subnet_ids", null)
+  vpc_id         = lookup(lookup(module.vpc, "main", null), "vpc_id", null)
+  allow_app_cidr = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnets", null), each.value["allow_app_cidr"], null), "subnet_cidrs", null)
+
+  env          = var.env
+  bastion_cidr = var.bastion_cidr
+  tags         = local.tags
+}
