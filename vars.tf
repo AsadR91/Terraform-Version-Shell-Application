@@ -8,7 +8,6 @@ variable "default_vpc_rtid" {}
 variable "domain_name" {}
 variable "domain_id" {}
 variable "kms_arn" {}
-
 variable "docdb" {}
 variable "rds" {}
 variable "elasticache" {}

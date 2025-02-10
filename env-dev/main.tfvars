@@ -6,7 +6,7 @@ default_vpc_rtid = "rtb-06bbde3bf6aa98236"
 kms_arn          = "arn:aws:kms:us-east-1:842676003559:key/4f4d4c1d-a16f-4407-850d-c4584a6e2522"
 domain_name      = "aws.automation-dev.us"
 domain_id        = "Z046601226CDZON0ON24A"
-kms_arn      = var.kms_arn
+
 
 vpc = {
   main = {
