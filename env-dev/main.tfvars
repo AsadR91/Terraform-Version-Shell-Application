@@ -4,6 +4,8 @@ default_vpc_id   = "vpc-03ef0cd307fe5f25d"
 default_vpc_cidr = "172.31.0.0/16"
 default_vpc_rtid = "rtb-06bbde3bf6aa98236"
 kms_arn          = "arn:aws:kms:us-east-1:842676003559:key/4f4d4c1d-a16f-4407-850d-c4584a6e2522"
+domain_name      = "aws.automation-dev.us"
+domain_id        = "Z046601226CDZON0ON24A"
 
 vpc = {
   main = {
@@ -35,22 +37,29 @@ vpc = {
 
 app = {
   frontend = {
-    name             = "frontend"
-    instance_type    = "t3.small"
-    subnet_name      = "web"
-    allow_app_cidr   = "public"
-    desired_capacity = 2
-    max_size         = 10
-    min_size         = 2
+    name              = "frontend"
+    instance_type     = "t3.small"
+    subnet_name       = "web"
+    allow_app_cidr    = "public"
+    desired_capacity  = 1
+    max_size          = 10
+    min_size          = 1
+    app_port          = 80
+    listener_priority = 1
+    lb_type           = "public"
+    dns_name          = "dev"
   }
   catalogue = {
-    name             = "catalogue"
-    instance_type    = "t3.small"
-    subnet_name      = "app"
-    allow_app_cidr   = "web"
-    desired_capacity = 2
-    max_size         = 10
-    min_size         = 2
+    name              = "catalogue"
+    instance_type     = "t3.small"
+    subnet_name       = "app"
+    allow_app_cidr    = "web"
+    desired_capacity  = 1
+    max_size          = 10
+    min_size          = 1
+    app_port          = 8080
+    listener_priority = 1
+    lb_type           = "private"
   }
   //  cart = {
   //    name          = "cart"
@@ -113,6 +122,7 @@ rabbitmq = {
     instance_type = "t3.small"
   }
 }
+
 
 alb = {
   public = {
